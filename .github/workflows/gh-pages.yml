@@ -3,11 +3,11 @@ on:
   push:
     branches:
       - master
+    paths-ignore:
+      - '**.md'
   pull_request:
     branches:
       - master
-  # paths-ignore:
-  #   - '**.md'
 jobs:
   skip:
     runs-on: ubuntu-latest
