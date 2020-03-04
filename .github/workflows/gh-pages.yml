@@ -1,13 +1,13 @@
 name: Build and Deploy
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
-  paths-ignore:
-    - '**.md'
+on: [push, pull_request]
+  # push:
+  #   branches:
+  #     - master
+  # pull_request:
+  #   branches:
+  #     - master
+  # paths-ignore:
+  #   - '**.md'
 jobs:
   skip:
     runs-on: ubuntu-latest
@@ -40,7 +40,7 @@ jobs:
         with:
           deploy_key: ${{ secrets.ACCESS_TOKEN }}
           publish_dir: ./dist
-      - name: Release
-        run: npm run release -m "changelog [skip ci]"
-      - name: git push
-        run: git push --follow-tags origin master
+      # - name: Release
+      #   run: npm run release -m "changelog [skip ci]"
+      # - name: git push
+      #   run: git push --follow-tags origin master
