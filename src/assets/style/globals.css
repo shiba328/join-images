@@ -38,13 +38,13 @@
   background: #fff;
   border-top: 1px solid #eee;
 
-  a {
-    display: inline-block;
-    padding: 0.5em;
-    margin: 0 0.5em;
-  }
-
   .menu {
     margin-right: auto;
+
+    a {
+      display: inline-block;
+      padding: 0.5em;
+      margin: 0 0.5em;
+    }
   }
 }
