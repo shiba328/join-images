@@ -16,7 +16,7 @@ export default class AddCaption {
     //
     const icon = document.createElement('i');
     icon.classList.add('material-icons')
-    icon.innerText = 'highlight_off';
+    icon.innerText = 'close';
     item.appendChild(icon);
 
     return item;

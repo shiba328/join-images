@@ -4,14 +4,14 @@ html(lang="ja")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=no")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    meta(name="description", content="くっつけたーは、バラバラになった複数の画像を一枚に結合まとめてくれるオンラインツールです。プレゼン資料やパワポの添付画像に便利なキャプション追加可能。")
+    meta(name="description", content="フォトショや加工アプリより簡単素早く、バラバラの複数の画像を一枚にまとめてくれる画像結合ツール。プレゼン資料やパワポの添付画像に便利なキャプション追加可能。")
     meta(content="website", property="og:type")
     meta(content="ja_JP", property="og:locale")
     link(href="https://fonts.googleapis.com/icon?family=Material+Icons&text=menu_openformat_align_centerformat_align_leftformat_align_rightformat_align_justifyvertical_align_bottomvertical_align_centervertical_align_topadd_a_photowrap_texthighlight_offfile_downloadformat_color_fillformat_color_textnavigate_beforenavigate_next" rel="stylesheet")
     script(async src="https://www.googletagmanager.com/gtag/js?id=UA-159821262-1")
     script.
       window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-159821262-1');
-    title 複数の写真画像を一枚に結合したい無料オンラインツール「くっつけたー」
+    title 「複数の画像をまとめたい」に特化した無料ツール | 画像くっつけたー
   body
     .container.main(style="display:none")
       .global-header
@@ -119,7 +119,9 @@ html(lang="ja")
             .download
               .label 保存
               .container
-                button.btn(jsname="save-file")
+                button.btn.save(jsname="save-file")
+                  i.material-icons file_download
+                button.btn.preview(jsname="preview-file")
                   i.material-icons file_download
       .global-footer
         .menu
