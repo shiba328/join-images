@@ -1,5 +1,5 @@
-import AddCaption from './add-caption';
-import RemoveItem from './remove-item';
+import AddCaption from './item-add-caption';
+import RemoveItem from './item-remove';
 
 export default class DropDrag {
   btn: HTMLElement;
