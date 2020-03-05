@@ -53,15 +53,15 @@ a {
 }
 
 .scrollbar::-webkit-scrollbar-track {
-	background: none;
+  background: none;
 }
 
 .scrollbar::-webkit-scrollbar {
-	width: 5px;
-	background: none;
+  width: 5px;
+  background: none;
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
-	background: #9400ff;
-  opacity: .4;
+  background: #9400ff;
+  opacity: 0.4;
 }

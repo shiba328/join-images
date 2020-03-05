@@ -36,10 +36,9 @@ export default class DropDrag {
       this.emptyMessage.classList.add('is-hidden');
     });
 
-    this.btn.addEventListener('click', (e: Event & { dataTransfer?: DataTransfer }) => {
-      // e.preventDefault();
-      this.canvas.classList.remove('dragover');
-      this._filesManage(e.dataTransfer.files);
+    this.btn.addEventListener('change', (e: Event & { target?: HTMLInputElement & EventTarget }) => {
+      e.preventDefault();
+      this._filesManage(e.target.files);
       this.emptyMessage.classList.add('is-hidden');
     });
   }

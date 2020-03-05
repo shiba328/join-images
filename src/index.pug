@@ -7,27 +7,33 @@ html(lang="ja")
     meta(name="description", content="ジョインイメージは、バラバラになった複数の画像を一枚にまとめてくれるオンラインサービスです。プレゼン資料やパワポの添付画像に便利なキャプション追加可能。")
     meta(content="website", property="og:type")
     meta(content="ja_JP", property="og:locale")
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap&text=JOINIMAGES" rel="stylesheet">
     link(href="https://fonts.googleapis.com/icon?family=Material+Icons&text=menu_openformat_align_centerformat_align_leftformat_align_rightformat_align_justifyvertical_align_bottomvertical_align_centervertical_align_topadd_a_photowrap_texthighlight_offfile_downloadformat_color_fillformat_color_text" rel="stylesheet")
     title JOIN IMAGES
   body
     .container.main(style="display:none")
       .global-header
-        .branding
-          a(href="/") JOIN IMAGES
+        .branding JOIN IMAGES
         //- .menu
         //-   button.btn ヘルプ
       .global-body
         .main-canvas-wrapper.scrollbar
           .empty-message(jsname="empty-message")
-            i.material-icons.large add_a_photo
-            div ここにファイルをドロップ。
-            small ※複数のファイルをまとめてドロップも可能です。画像ファイル以外は追加されません。
+            .not-mb
+              i.material-icons.large add_a_photo
+              div ここにファイルをドロップ。
+              ul
+                li 複数のファイルをまとめてドロップも可能です。
+                li 画像ファイル以外は追加されません。
+                li 画像ファイルはサーバー等にアップロードしません。
+                li 安心してご利用ください。
+            .is-mb
+              div 画像を追加してください。
+
           .main-canvas.column-2.fontsize-12.padding-8.justify-center.align-center(jsname="main-canvas")
         .layout-tools
           .add-file
-            input.is-hidden(accept="image/*" id="addfiles" multiple="" type="file")
-            label.btn(for="addfiles" jsname="add-file")
+            input.is-hidden(accept="image/*" id="addfiles" multiple="" type="file" jsname="add-file")
+            label.btn(for="addfiles")
               i.material-icons add_a_photo
           .close
             button.btn
