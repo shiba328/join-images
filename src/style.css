@@ -105,7 +105,7 @@
     }
 
     &-flex-end {
-      align-items: flex-end;
+      align-items: baseline;
     }
 
     &-stretch {
