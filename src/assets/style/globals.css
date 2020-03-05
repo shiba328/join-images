@@ -1,0 +1,50 @@
+.global-header {
+  display: flex;
+  align-items: center;
+  font-size: 150%;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+
+  a {
+    display: inline-block;
+    padding: 1em 0.5em;
+    margin: 0 0.5em;
+  }
+
+  .menu {
+    margin-left: auto;
+  }
+
+  .branding a {
+    padding: 10% 0;
+    font-size: 100%;
+    color: #006dff;
+    text-decoration: none;
+    letter-spacing: 0;
+  }
+}
+
+.global-body {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+}
+
+.global-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 100%;
+  background: #fff;
+  border-top: 1px solid #eee;
+
+  a {
+    display: inline-block;
+    padding: 0.5em;
+    margin: 0 0.5em;
+  }
+
+  .menu {
+    margin-right: auto;
+  }
+}
