@@ -1,5 +1,6 @@
-import AddCaption from './add-caption';
-import RemoveItem from './remove-item';
+import AddCaption from './item-add-caption';
+import RemoveItem from './item-remove';
+import SortItem from './item-sort';
 
 export default class DropDrag {
   btn: HTMLElement;
@@ -50,12 +51,15 @@ export default class DropDrag {
       if (!file || file.type.indexOf('image/') < 0) {
         return;
       }
-      this.canvas.appendChild(this._formatItem(file));
+
+      const item = this._formatItem(file);
+      this.canvas.appendChild(item);
 
       const divider = document.createElement('div');
       divider.classList.add('divider');
-      
       this.canvas.appendChild(divider);
+
+      new SortItem([ item, divider ]);
     });
   }
 
@@ -65,6 +69,7 @@ export default class DropDrag {
     
     const blobURL = URL.createObjectURL(file);
     const img = document.createElement('img');
+    img.setAttribute('draggable', 'false');
     img.setAttribute('src', blobURL);
     item.appendChild(img);
 
