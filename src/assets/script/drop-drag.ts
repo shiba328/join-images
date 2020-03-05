@@ -2,16 +2,15 @@ import AddCaption from './add-caption';
 import RemoveItem from './remove-item';
 
 export default class DropDrag {
+  btn: HTMLElement;
   canvas: HTMLElement;
-  input: HTMLElement;
   emptyMessage: HTMLElement;
   fileCount: number;
 
   constructor() {
+    this.btn = document.querySelector('[jsname="add-file"]');
     this.canvas = document.querySelector('[jsname="main-canvas"]');
-    this.input = document.querySelector('[jsname="file-input"]');
     this.emptyMessage = document.querySelector('[jsname="empty-message"]');
-    
     this.fileCount = 0;
 
     this._resistEventListener();
@@ -32,6 +31,13 @@ export default class DropDrag {
     
     this.canvas.addEventListener('drop', (e: Event & { dataTransfer?: DataTransfer }) => {
       e.preventDefault();
+      this.canvas.classList.remove('dragover');
+      this._filesManage(e.dataTransfer.files);
+      this.emptyMessage.classList.add('is-hidden');
+    });
+
+    this.btn.addEventListener('click', (e: Event & { dataTransfer?: DataTransfer }) => {
+      // e.preventDefault();
       this.canvas.classList.remove('dragover');
       this._filesManage(e.dataTransfer.files);
       this.emptyMessage.classList.add('is-hidden');

@@ -8,7 +8,7 @@ html(lang="ja")
     meta(content="website", property="og:type")
     meta(content="ja_JP", property="og:locale")
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap&text=JOINIMAGES" rel="stylesheet">
-    link(href="https://fonts.googleapis.com/icon?family=Material+Icons&text=double_arrowformat_align_centerformat_align_leftformat_align_rightformat_align_justifyvertical_align_bottomvertical_align_centervertical_align_topadd_a_photowrap_texthighlight_offfile_downloadformat_color_fillformat_color_text" rel="stylesheet")
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons&text=menu_openformat_align_centerformat_align_leftformat_align_rightformat_align_justifyvertical_align_bottomvertical_align_centervertical_align_topadd_a_photowrap_texthighlight_offfile_downloadformat_color_fillformat_color_text" rel="stylesheet")
     title JOIN IMAGES
   body
     .container.main(style="display:none")
@@ -25,6 +25,13 @@ html(lang="ja")
             small ※複数のファイルをまとめてドロップも可能です。画像ファイル以外は追加されません。
           .main-canvas.column-2.fontsize-12.padding-8.justify-center.align-center(jsname="main-canvas")
         .layout-tools
+          .add-file
+            input.is-hidden(accept="image/*" id="addfiles" multiple="" type="file")
+            label.btn(for="addfiles" jsname="add-file")
+              i.material-icons add_a_photo
+          .close
+            button.btn
+              i.material-icons menu_open
           .layout-tools-inner
             .justify
               .label 横並び
@@ -104,16 +111,13 @@ html(lang="ja")
               .container
                 button.btn(jsname="save-file")
                   i.material-icons file_download
-          .close
-            button.btn
-              i.material-icons double_arrow
       .global-footer
-        .copyright (c) 2019 Virlent. 
         .menu
-          a(href="") 機能改善はこちら
-          a(href="") スポンサー・寄付はこちら
+          a(href="https://github.com/shiba328/join-images/issues") 機能改善はこちら
+          a(href="https://forms.gle/humPNdoJcJ7KmaWB6") スポンサー・寄付はこちら
           //- a(href="https://virlent.com") About
           a(href="https://forms.gle/humPNdoJcJ7KmaWB6") フォームからお問い合わせ
+        .copyright (c) 2019 Virlent. 
     .container.loading
       .inner(style="height: 100vh;width: 100%;display: flex;justify-content: center;align-items: center;")
           svg(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="shape-rendering: auto;" width="100px" height="100px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid")

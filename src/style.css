@@ -1,4 +1,8 @@
 @import './assets/style/base';
+@import './assets/style/globals';
+
+@custom-media --sp (max-width: 500px);
+@custom-media --md (min-width: 500px);
 
 :root {
   --light: #a8c8f1;
@@ -223,50 +227,10 @@
   position: absolute;
   bottom: 0;
   z-index: 3;
-  display: flex;
-  align-items: center;
   filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.2));
 
-  &-inner {
-    display: flex;
-    padding: 8px;
-    background: #fff;
-
-    > * {
-      margin-right: 8px;
-    }
-  }
-
-  label {
-    display: inline-block;
-    margin: 0 2px;
-    vertical-align: middle;
-
-    input:checked + i {
-      color: #000;
-      border-color: #aaa;
-    }
-  }
-
-  .material-icons {
-    display: block;
-    color: #bbb;
-    border: 1px solid transparent;
-    border-radius: 2px;
-
-    &:hover {
-      color: #000;
-      border-color: #aaa;
-    }
-  }
-
-  .close {
-    display: flex;
-    align-items: flex-end;
-    align-self: stretch;
-  }
-
   .btn {
+    display: block;
     -webkit-appearance: none;
     padding: 0;
     margin: 0;
@@ -274,44 +238,116 @@
     border: 0;
   }
 
-  .style {
-    &-input {
-      height: 26px;
-      border: 1px solid #aaa;
-      border-radius: 2px;
+  .add-file {
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 5em;
+      height: 5em;
+      margin-right: 16px;
+      margin-left: auto;
+      color: #fff;
+      background: #006dff;
+      border-radius: 2.5em;
+    }
+
+    @media (--md) {
+      display: none;
     }
   }
 
-  .download {
-    margin-left: 8px;
+  @media (--sp) {
+    margin-right: auto;
+  }
 
+  .close {
     .btn {
-      .material-icons {
-        color: #fff;
-        background: #00ad0f;
+      width: 5em;
+      padding-top: 0.5em;
+      margin-left: auto;
+      background: #fff;
+      border-radius: 3em 3em 0 0;
 
-        &:hover {
-          background: #aaa;
+      @media (--sp) {
+        margin-right: auto;
+      }
+    }
+  }
+
+  &-inner {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 8px;
+    background: #fff;
+
+    > * {
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+
+    label {
+      display: inline-block;
+      margin: 0 2px;
+      vertical-align: middle;
+
+      input:checked + i {
+        color: #000;
+        border-color: #aaa;
+      }
+    }
+
+    .material-icons {
+      display: block;
+      color: #bbb;
+      border: 1px solid transparent;
+      border-radius: 2px;
+  
+      &:hover {
+        color: #000;
+        border-color: #aaa;
+      }
+    }
+
+    .style {
+      &-input {
+        height: 26px;
+        border: 1px solid #aaa;
+        border-radius: 2px;
+      }
+    }
+
+    .download {
+      margin-left: 8px;
+  
+      .btn {
+        .material-icons {
+          color: #fff;
+          background: #00ad0f;
+  
+          &:hover {
+            background: #aaa;
+          }
         }
       }
     }
-  }
 
-  .canvassize {
-    .container {
-      display: flex;
-      align-items: center;
-      height: 26px;
-
-      input {
-        width: 4em;
+    .canvassize {
+      .container {
+        display: flex;
+        align-items: center;
         height: 26px;
+  
+        input {
+          width: 4em;
+          height: 26px;
+        }
       }
     }
-  }
 
-  .yet {
-    pointer-events: none;
-    opacity: 0.3;
+    .yet {
+      pointer-events: none;
+      opacity: 0.3;
+    }
   }
 }
