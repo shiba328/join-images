@@ -32,17 +32,22 @@
 
 ### 画像の並び
 
-![追加](https://github.com/shiba328/join-images/blob/doc/wrap.gif)
+![追加](https://github.com/shiba328/join-images/blob/doc/align.gif)
+
+1. 中央寄せ・左寄せ・右寄せ・天地中央・均等割り付けを行います。
 
 ### 折返し
 
+![追加](https://github.com/shiba328/join-images/blob/doc/wrap.gif)
+
+1. 折返しをONにすると画像を折り返します。
+1. セレクトボックスから折り返したい数を選択します。
+
 ### 隙間
 
-### フォント
+![追加](https://github.com/shiba328/join-images/blob/doc/padding.gif)
 
-#### フォントサイズ
-
-#### (yet)フォント色
+### (yet)フォント
 
 ### (yet)背景色
 
