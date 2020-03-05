@@ -15,8 +15,8 @@
     margin-left: auto;
   }
 
-  .branding a {
-    padding: 10% 0;
+  .branding {
+    padding: 8px;
     font-size: 100%;
     color: #006dff;
     text-decoration: none;
