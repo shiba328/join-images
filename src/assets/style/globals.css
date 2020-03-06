@@ -16,7 +16,8 @@
   }
 
   .branding {
-    padding: 8px;
+    position: absolute;
+    top: 0;
     font-size: 100%;
     color: #006dff;
     text-decoration: none;

@@ -8,9 +8,19 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: './src/index.ts',
   resolve: {
+    alias: {
+      '@': path.join(__dirname, '/src'),
+      'assets': path.resolve(__dirname, 'src/assets')
+    },
     extensions: ['.ts', '.js'] //拡張子がtsだったらTypescirptでコンパイルする
   },
   plugins: [
+    new CopyPlugin([
+      {
+        from: path.resolve(__dirname, 'src/assets/public/'),
+        to: path.resolve(__dirname, 'dist/images')
+      }
+    ]),
     new HtmlWebPackPlugin({
       template: `./src/index.pug`,
       filename: `index.html`,
@@ -23,12 +33,6 @@ module.exports = {
         useShortDoctype: true
       }
     }),
-    new CopyPlugin([
-      {
-        from: path.resolve(__dirname, 'src/assets/public/'),
-        to: path.resolve(__dirname, 'dist/images')
-      }
-    ]),
     new webpack.ProgressPlugin(),
     new MiniCssExtractPlugin()
   ],
@@ -65,15 +69,7 @@ module.exports = {
       {
         test: /\.pug$/,
         use: [
-          'html-loader',
-          {
-            loader: 'pug-html-loader'
-            // options: {
-            //   pretty: true,
-            //   minimize: false,
-            //   basedir: path.join(__dirname, 'src')
-            // }
-          }
+          'pug-loader'
         ]
       },
       // css
@@ -120,7 +116,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '/images/[name].[ext]'
+              name: './images/[name].[ext]'
             }
           }
         ]
