@@ -42,5 +42,5 @@ jobs:
           publish_dir: ./dist
       - name: Release
         run: npm run release -m "changelog [skip ci]"
-      - name: git push
-        run: git push --follow-tags origin master
+      # - name: git push
+      #   run: git push --follow-tags origin master
