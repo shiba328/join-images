@@ -46,22 +46,17 @@ a {
 }
 
 .scrollbar {
-  position: relative;
-  float: left;
-  width: 100%;
-  overflow-y: scroll;
-}
+  &::-webkit-scrollbar-track {
+    background: none;
+  }
 
-.scrollbar::-webkit-scrollbar-track {
-  background: none;
-}
+  &::-webkit-scrollbar {
+    width: 5px;
+    background: none;
+  }
 
-.scrollbar::-webkit-scrollbar {
-  width: 5px;
-  background: none;
-}
-
-.scrollbar::-webkit-scrollbar-thumb {
-  background: #9400ff;
-  opacity: 0.4;
+  &::-webkit-scrollbar-thumb {
+    background: #9400ff;
+    opacity: 0.4;
+  }
 }
