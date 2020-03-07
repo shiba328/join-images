@@ -18,6 +18,7 @@
   .branding {
     position: absolute;
     top: 0;
+    z-index: 1;
     font-size: 100%;
     color: #006dff;
     text-decoration: none;
