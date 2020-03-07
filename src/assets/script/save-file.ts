@@ -6,8 +6,8 @@ export default class SaveFile {
     const saveBtn = document.querySelector('[jsname="save-file"]');
 
     saveBtn.addEventListener('click', (e) => {
-      const node = <HTMLElement>document.querySelector('[jsname="main-canvas"]');
-      // node.setAttribute("style", "width: 640px; height:480px;");
+      const orig = <HTMLElement>document.querySelector('[jsname="main-canvas"]');
+      const node = orig;
 
       htmlToImage.toPng(node)
       .then((dataUrl) => {
@@ -15,20 +15,20 @@ export default class SaveFile {
         link.download = 'join-images.png';
         link.href = dataUrl;
         link.click();
-        node.removeAttribute("style");
+      })
+      .catch(function (error) {
+        console.error('oops, something went wrong!', error);
       });
     })
 
     const previewBtn = document.querySelector('[jsname="preview-file"]');
 
     previewBtn.addEventListener('click', (e) => {
-      const node = <HTMLElement>document.querySelector('[jsname="main-canvas"]');
-
-      node.style.background = "#fff";
+      const orig = <HTMLElement>document.querySelector('[jsname="main-canvas"]');
+      const node = orig;
 
       htmlToImage.toPng(node)
       .then(function (dataUrl) {
-        node.style.background = "transparent";
 
         const alert = document.createElement('div');
         alert.classList.add('dialog-alert');
@@ -43,20 +43,20 @@ export default class SaveFile {
         announce.classList.add('announce');
         announce.innerText = "画像を長押しで「写真」に保存";
 
-        const scale = document.createElement('div');
-        alert.appendChild(scale);
-        scale.classList.add('scale');
-        scale.innerText = "倍率: 80%";
-
         var img = new Image();
-        alert.appendChild(img);
         
         img.width = node.offsetWidth;
         img.height = node.offsetHeight;
+        alert.appendChild(img);
 
         img.addEventListener("load", (e) => {
         }, false);
         img.src = dataUrl;
+
+        const scale = document.createElement('div');
+        alert.appendChild(scale);
+        scale.classList.add('scale');
+        scale.innerText = `倍率: 80%　サイズ: ${img.width} x ${img.height}`;
 
         const dialog = new Dialog();
         const format = dialog._format('preview', alert);

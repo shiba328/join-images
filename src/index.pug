@@ -27,20 +27,19 @@ html(lang="ja")
         .menu
           a(href="https://github.com/shiba328/join-images#readme") ヘルプ
       .global-body
-        .main-canvas-wrapper.scrollbar
-          .empty-message(jsname="empty-message")
-            .not-mb
-              i.material-icons.large add_a_photo
-              div ここにファイルをドロップ。
-              ul
-                li 複数のファイルをまとめてドロップも可能です。
-                li 画像ファイル以外は追加されません。
-                li 画像ファイルはサーバー等にアップロードしません。
-                li 安心してご利用ください。
-            .is-mb
-              div 画像を追加してください。
-
-          .main-canvas.column-2.fontsize-12.padding-8.justify-center.align-center(jsname="main-canvas")
+        .empty-message(jsname="empty-message")
+          .not-mb
+            i.material-icons.large add_a_photo
+            div ここにファイルをドロップ。
+            ul
+              li 複数のファイルをまとめてドロップも可能です。
+              li 画像ファイル以外は追加されません。
+              li 画像ファイルはサーバー等にアップロードしません。
+              li 安心してご利用ください。
+          .is-mb
+            div 画像を追加してください。
+        .main-canvas-wrapper.scrollbar(jsname="wrap-canvas")
+          .main-canvas.column-1.fontsize-12.padding-8.justify-center.align-center(jsname="main-canvas")
         .layout-tools
           .add-file
             input.is-hidden(accept="image/*" id="addfiles" multiple="" type="file" jsname="add-file")
@@ -60,26 +59,26 @@ html(lang="ja")
                     { type: 'center', label: '中央寄せ', selected: true, icon: 'format_align_center' },
                     { type: 'flex-end', label: '末尾寄せ', icon: 'format_align_right' },
                     { type: 'space-between', label: '均等割付(between)', icon: 'format_align_justify' },
-                    { type: 'space-around', label: '均等割付(around)', icon: 'format_align_justify' },
+                    //- { type: 'space-around', label: '均等割付(around)', icon: 'format_align_justify' },
                     { type: 'space-evenly', label: '均等割付(evenly)', icon: 'format_align_justify' }
                   ]
                 each item in justify
                   label
                     input(class="is-hidden" type="radio" name="justify" jsname="justify-select" value=item.type checked=item.selected)
                     i.material-icons #{item.icon}
-            .align
-              .label 縦並び
-              .container
-                -
-                  var align = [
-                    { type: 'flex-start', label: 'リセット', icon: 'vertical_align_top' },
-                    { type: 'center', label: '中央寄せ', selected: true, icon: 'vertical_align_center' },
-                    { type: 'flex-end', label: '下部寄せ', icon: 'vertical_align_bottom' }
-                  ]
-                each item in align
-                  label
-                    input(class="is-hidden" type="radio" name="align" jsname="align-select" value=item.type checked=item.selected)
-                    i.material-icons #{item.icon}
+            //- .align
+            //-   .label 縦並び
+            //-   .container
+            //-     -
+            //-       var align = [
+            //-         { type: 'flex-start', label: 'リセット', icon: 'vertical_align_top' },
+            //-         { type: 'center', label: '中央寄せ', selected: true, icon: 'vertical_align_center' },
+            //-         { type: 'flex-end', label: '下部寄せ', icon: 'vertical_align_bottom' }
+            //-       ]
+            //-     each item in align
+            //-       label
+            //-         input(class="is-hidden" type="radio" name="align" jsname="align-select" value=item.type checked=item.selected)
+            //-         i.material-icons #{item.icon}
             .wrap
               .label 折返
               .container
@@ -87,7 +86,7 @@ html(lang="ja")
                   input(class="is-hidden" type="checkbox" name="wrap" jsname="wrap-select")
                   i.material-icons wrap_text
                 select.style-input(jsname="column-select")
-                  - var size = [ 2, 3, 4 ]
+                  - var size = [ 1, 2, 3, 4 ]
                     each i in size
                       option(value=i) #{i}
             .padding
@@ -119,11 +118,11 @@ html(lang="ja")
                   i.material-icons format_color_fill
                 input#bg.is-hidden(type="color" value="#ffffff" jsname="background-select" disabled)
             .canvassize.yet
-              .label 横×縦
+              .label 横
               .container
                 input(type="number" jsname="canvassize-width" step="20" value="640")
-                span ×
-                input(type="number" jsname="canvassize-height" step="20" value="480")
+                //- span ×
+                //- input(type="number" jsname="canvassize-height" step="20" value="480")
           .download
             .label 保存
             .container

@@ -4,12 +4,14 @@ import SortItem from './item-sort';
 
 export default class DropDrag {
   btn: HTMLElement;
+  wrap: HTMLElement;
   canvas: HTMLElement;
   emptyMessage: HTMLElement;
   fileCount: number;
 
   constructor() {
     this.btn = document.querySelector('[jsname="add-file"]');
+    this.wrap = document.querySelector('[jsname="wrap-canvas"]');
     this.canvas = document.querySelector('[jsname="main-canvas"]');
     this.emptyMessage = document.querySelector('[jsname="empty-message"]');
     this.fileCount = 0;
@@ -18,21 +20,21 @@ export default class DropDrag {
   }
 
   private _resistEventListener() {
-    this.canvas.addEventListener('dragover', (e) => {
+    this.wrap.addEventListener('dragover', (e) => {
       e.preventDefault();
     });
 
-    this.canvas.addEventListener('dragenter', (e) => {
-      this.canvas.classList.add('dragover');
+    this.wrap.addEventListener('dragenter', (e) => {
+      this.wrap.classList.add('dragover');
     });
 
-    this.canvas.addEventListener('dragleave', (e) => {
-      this.canvas.classList.remove('dragover');
+    this.wrap.addEventListener('dragleave', (e) => {
+      this.wrap.classList.remove('dragover');
     });
     
-    this.canvas.addEventListener('drop', (e: Event & { dataTransfer?: DataTransfer }) => {
+    this.wrap.addEventListener('drop', (e: Event & { dataTransfer?: DataTransfer }) => {
       e.preventDefault();
-      this.canvas.classList.remove('dragover');
+      this.wrap.classList.remove('dragover');
       this._filesManage(e.dataTransfer.files);
       this.emptyMessage.classList.add('is-hidden');
     });
