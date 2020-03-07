@@ -152,8 +152,11 @@
     height: 100%;
     overflow-y: auto;
     background-image: url('./assets/public/bg.png');
-    background-size: 50%;
     border: 8px solid transparent;
+
+    @media (--sp) {
+      background-size: 50%;
+    }
   }
 }
 
