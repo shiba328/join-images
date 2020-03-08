@@ -39,7 +39,7 @@ html(lang="ja")
           .is-mb
             div 画像を追加してください。
         .main-canvas-wrapper.scrollbar(jsname="wrap-canvas")
-          .main-canvas.column-1.fontsize-12.padding-8.justify-center.align-center(jsname="main-canvas")
+          .main-canvas.wrap.column-2.fontsize-36.padding-0.justify-center.align-center(jsname="main-canvas")
         .layout-tools
           .add-file
             input.is-hidden(accept="image/*" id="addfiles" multiple="" type="file" jsname="add-file")
@@ -58,78 +58,72 @@ html(lang="ja")
                     { type: 'normal', label: '通常の配置', icon: 'format_align_left'},
                     { type: 'center', label: '中央寄せ', selected: true, icon: 'format_align_center' },
                     { type: 'flex-end', label: '末尾寄せ', icon: 'format_align_right' },
-                    { type: 'space-between', label: '均等割付(between)', icon: 'format_align_justify' },
-                    //- { type: 'space-around', label: '均等割付(around)', icon: 'format_align_justify' },
-                    { type: 'space-evenly', label: '均等割付(evenly)', icon: 'format_align_justify' }
+                    //- { type: 'space-between', label: '均等割付(between)', icon: 'format_align_justify' }
                   ]
                 each item in justify
                   label
                     input(class="is-hidden" type="radio" name="justify" jsname="justify-select" value=item.type checked=item.selected)
                     i.material-icons #{item.icon}
-            //- .align
-            //-   .label 縦並び
-            //-   .container
-            //-     -
-            //-       var align = [
-            //-         { type: 'flex-start', label: 'リセット', icon: 'vertical_align_top' },
-            //-         { type: 'center', label: '中央寄せ', selected: true, icon: 'vertical_align_center' },
-            //-         { type: 'flex-end', label: '下部寄せ', icon: 'vertical_align_bottom' }
-            //-       ]
-            //-     each item in align
-            //-       label
-            //-         input(class="is-hidden" type="radio" name="align" jsname="align-select" value=item.type checked=item.selected)
-            //-         i.material-icons #{item.icon}
+            .align
+              .label 縦並び
+              .container
+                -
+                  var align = [
+                    { type: 'flex-start', label: 'リセット', icon: 'vertical_align_top' },
+                    { type: 'center', label: '中央寄せ', selected: true, icon: 'vertical_align_center' },
+                    { type: 'flex-end', label: '下部寄せ', icon: 'vertical_align_bottom' }
+                  ]
+                each item in align
+                  label
+                    input(class="is-hidden" type="radio" name="align" jsname="align-select" value=item.type checked=item.selected)
+                    i.material-icons #{item.icon}
             .wrap
-              .label 折返
-              .container
-                label
-                  input(class="is-hidden" type="checkbox" name="wrap" jsname="wrap-select")
-                  i.material-icons wrap_text
-                select.style-input(jsname="column-select")
-                  - var size = [ 1, 2, 3, 4 ]
-                    each i in size
-                      option(value=i) #{i}
+              input.void(type="checkbox" jsname="wrap-void" checked value="off")
+              span.label 折返
+              select.select(jsname="wrap-select")
+                -
+                  var size = [
+                    { type: '1', label: '1' },
+                    { type: '2', label: '2', selected: true },
+                    { type: '3', label: '3' },
+                    { type: '4', label: '4' }
+                  ]
+                each i in size
+                  option(value=i.type, selected=i.selected) #{i.label}
             .padding
-              .label 隙間
-              .container
-                select.style-input(jsname="padding-select")
-                  - var size = [ 8, 16, 32, 48]
-                    each i in size
-                      option(value=i) #{i}
+              span.label 隙間
+              select.select(jsname="padding-select")
+                - var size = [0, 8, 16, 32, 48]
+                  each i in size
+                    option(value=i) #{i}
             .fontsize
-              .label フォント
-              .container
-                select.style-input(jsname="fontsize-select")
-                  - var size = [ 12, 16, 22, 36]
-                    each i in size
-                      option(value=i) #{i}
-            .color.yet
-              .label カラー
-              .container
-                label(for="cl")
-                  i.material-icons format_color_text
-                input#cl.is-hidden(type="color" value="#000000" jsname="color-select" disabled)
-            .background.yet
-              .label
-                | 背景
-                input(type="checkbox" jsname="background-void")
-              .container
-                label(for="bg")
-                  i.material-icons format_color_fill
-                input#bg.is-hidden(type="color" value="#ffffff" jsname="background-select" disabled)
-            .canvassize.yet
-              .label 横
-              .container
-                input(type="number" jsname="canvassize-width" step="20" value="640")
-                //- span ×
-                //- input(type="number" jsname="canvassize-height" step="20" value="480")
+              span.label フォント
+              select.select(jsname="fontsize-select")
+                -
+                  var size = [
+                    { type: '12', label: '12'},
+                    { type: '16', label: '16'},
+                    { type: '22', label: '22'},
+                    { type: '36', label: '36', selected: true }
+                  ]
+                each i in size
+                  option(value=i.type, selected=i.selected) #{i.label}
+            .color
+              input.void(type="checkbox" jsname="color-void")
+              span.label カラー
+              input.select(type="color", value="#036eb8", jsname="color-select" )
+            .background
+              input.void(type="checkbox" jsname="background-void")
+              span.label 背景
+              input.select(type="color", value="#ffffff", jsname="background-select" )
+            .canvassize
+              input.void(type="checkbox" jsname="canvassize-void")
+              span.label 横
+              input.select(type="number" jsname="canvassize-select" step="20" value="640")
           .download
-            .label 保存
-            .container
-              button.btn.save(jsname="save-file")
-                i.material-icons file_download
-              button.btn.preview(jsname="preview-file")
-                i.material-icons file_download
+            button.btn.preview(jsname="preview-file", disabled)
+              i.material-icons file_download
+              span.label プレビュー
       .global-footer
         .menu
           a(href="https://github.com/shiba328/join-images/issues") 機能改善はこちら
