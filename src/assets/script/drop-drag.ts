@@ -37,6 +37,10 @@ export default class DropDrag {
       this.wrap.classList.remove('dragover');
       this._filesManage(e.dataTransfer.files);
       this.emptyMessage.classList.add('is-hidden');
+      
+      const previewBtn = document.querySelector('[jsname="preview-file"]');
+      previewBtn.removeAttribute('disabled');
+
     });
 
     this.btn.addEventListener('change', (e: Event & { target?: HTMLInputElement & EventTarget }) => {

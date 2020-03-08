@@ -52,11 +52,12 @@ a {
 
   &::-webkit-scrollbar {
     width: 5px;
+    height: 5px;
     background: none;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: #9400ff;
+    background: linear-gradient(130deg, #3581d0, #006dff);
     opacity: 0.4;
   }
 }
