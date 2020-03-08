@@ -30,10 +30,12 @@
 .main-canvas {
   position: relative;
   z-index: 2;
+  display: inline-block;
 
   &.justify {
     &-normal {
       justify-content: normal;
+      text-align: left;
     }
 
     &-center {
@@ -154,6 +156,7 @@
     height: 100%;
     padding: 20px;
     overflow-y: auto;
+    text-align: center;
 
     @media (--sp) {
       background-size: 50%;
