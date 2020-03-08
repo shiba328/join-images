@@ -32,6 +32,10 @@
     .tour {
       margin-bottom: 2em;
 
+      img {
+        width: 100%;
+      }
+
       .btn {
         display: block;
         padding: 8px 16px;
@@ -39,7 +43,7 @@
         background: linear-gradient(130deg, #3581d0, #006dff);
         border-radius: 2em;
       }
-}
+    }
 
     .skip {
       text-align: right;
