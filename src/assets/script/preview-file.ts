@@ -16,9 +16,14 @@ export default class PreviewFile {
         previewFlag = true;
   
         const node = <HTMLElement>document.querySelector('[jsname="main-canvas"]');
+
+        const parent = <HTMLElement>node.parentElement;
+        parent.style.width = "99999px";
+        console.log(node.offsetWidth)
   
         htmlToImage.toPng(node)
           .then((dataUrl) => {
+            parent.removeAttribute('style');
             const dialog = new Dialog();
             const format = dialog._format('preview', this._format(dataUrl));
   
