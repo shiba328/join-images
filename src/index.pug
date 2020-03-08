@@ -16,11 +16,16 @@ html(lang="ja")
     meta(name="og:image:width", content="800")
     meta(name="og:image:og:height", content="419")
     link(href="https://fonts.googleapis.com/icon?family=Material+Icons&text=menu_openformat_align_centerformat_align_leftformat_align_rightformat_align_justifyvertical_align_bottomvertical_align_centervertical_align_topadd_a_photowrap_texthighlight_offfile_downloadformat_color_fillformat_color_textnavigate_beforenavigate_next" rel="stylesheet")
-    script(async src="https://www.googletagmanager.com/gtag/js?id=UA-159821262-1")
     script.
-      window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-159821262-1');
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-WMH5SJH');
     title 「複数の画像をまとめたい」に特化した無料ツール | 画像くっつけたー
   body
+    noscript
+      iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-WMH5SJH" height="0" width="0" style="display:none;visibility:hidden")
     .container.main(style="display:none")
       .global-header
         .branding: img(src=require("./assets/public/logo.png").default)
