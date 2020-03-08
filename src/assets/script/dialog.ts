@@ -12,8 +12,8 @@ export default class Dialog {
 
   _format(ref, element) {
     //
-    const body = document.querySelector('body');
-    body.classList.add('dialog-overlay');
+    // const body = document.querySelector('body');
+    // body.classList.add('dialog-overlay');
     // 外枠
     const item = document.createElement("div");
     item.classList.add('dialog');
@@ -59,6 +59,8 @@ export default class Dialog {
 
   _open(ref) {
     const dialogTarget = document.querySelector(`[data-dialog-ref="${ref}"]`);
+    document.body.classList.add('dialog-overlay');
+    dialogTarget.classList.add('dialog');
   }
 
   _openBtn(element) {
