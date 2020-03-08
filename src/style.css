@@ -1,6 +1,7 @@
 @import './assets/style/base';
 @import './assets/style/globals';
 @import './assets/style/dialog';
+@import './assets/style/first-access';
 
 @custom-media --sp (max-width: 500px);
 @custom-media --md (min-width: 500px);
