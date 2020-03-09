@@ -1,0 +1,10 @@
+.first-access(data-dialog-ref="first-access")
+  .dialog-inner
+    .dialog-body
+      .container
+        .tour
+          //- button.btn ツアーを始める
+          include:markdown-it ../../../README.md
+    .dialog-actions
+        .skip
+          button.btn(jsname="dialog_close_btn" data-dialog="first-access") スキップ →

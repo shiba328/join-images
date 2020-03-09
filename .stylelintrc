@@ -4,6 +4,12 @@
     "stylelint-config-recess-order"
   ],
   "rules": {
+  "at-rule-no-unknown": [
+    true,
+    {
+      "ignoreAtRules": ["include","mixin","each"]
+    }
+  ],
     "string-quotes": "single"
   }
 }

@@ -1,0 +1,150 @@
+.layout-tools {
+  background: #fff;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.2));
+
+  @media (--md) {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .btn {
+    display: block;
+    -webkit-appearance: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    border: 0;
+  }
+
+  .add-file {
+    position: absolute;
+    top: -90px;
+    right: 0;
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 5em;
+      height: 5em;
+      margin-right: 0;
+      margin-bottom: 8px;
+      margin-left: auto;
+      color: #fff;
+      background: var(--btn);
+      border-radius: 2.5em;
+    }
+  }
+
+  .close {
+    position: absolute;
+    top: -33px;
+    right: 0;
+
+    .btn {
+      display: block;
+      width: 5em;
+      padding-top: 0.5em;
+      margin-left: auto;
+      text-align: center;
+      background: #fff;
+      border-radius: 3em 3em 0 0;
+    }
+  }
+
+  .download {
+    padding: 8px 13px 3px;
+
+    .btn {
+      display: flex;
+      align-items: center;
+      padding: 8px 16px;
+      margin-left: auto;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      color: #fff;
+      white-space: nowrap;
+      background: var(--btn);
+      border-radius: 2em;
+
+      &:hover {
+        background: #aaa;
+      }
+
+      .label {
+        font-size: 16px;
+      }
+    }
+
+    @media (--md) {
+      /* float: left; */
+    }
+  }
+
+  &-inner {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 8px;
+    padding-bottom: 0;
+
+    > * {
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+
+    label {
+      display: inline-block;
+      margin: 0 2px;
+      vertical-align: middle;
+
+      input:checked + i {
+        color: #000;
+        border-color: #aaa;
+      }
+    }
+
+    .material-icons {
+      display: block;
+      color: #bbb;
+      border: 1px solid transparent;
+      border-radius: 2px;
+
+      &:hover {
+        color: #000;
+        border-color: #aaa;
+      }
+    }
+
+    .style {
+      &-input {
+        width: 4em;
+        height: 27px;
+        border: 1px solid #aaa;
+        border-radius: 2px;
+      }
+    }
+
+    .select {
+      display: block;
+      width: 4em;
+      height: 27px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .void ~ .select {
+      pointer-events: none;
+      opacity: 0.3;
+    }
+
+    .void:checked ~ .select {
+      pointer-events: unset;
+      opacity: 1;
+    }
+
+    .yet {
+      pointer-events: none;
+      opacity: 0.3;
+    }
+  }
+}

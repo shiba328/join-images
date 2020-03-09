@@ -1,0 +1,43 @@
+.preview {
+  img {
+    display: block;
+    width: auto;
+    max-width: 80%;
+    height: auto;
+    max-height: 80%;
+    margin: auto;
+  }
+}
+
+.save {
+  padding: 8px 16px;
+  margin: auto;
+  font-size: 16px;
+  color: #fff;
+  background: var(--btn);
+  border: 0;
+  border-radius: 2em;
+}
+
+.dialog-alert {
+  padding: 1em;
+  color: #fff;
+  text-align: center;
+
+  .attention {
+    @media (--md) {
+      display: none;
+    }
+  }
+
+  .announce {
+    display: inline-block;
+    padding: 1em;
+    border: 1px solid #fff;
+    border-radius: 2em;
+
+    @media (--md) {
+      display: none;
+    }
+  }
+}

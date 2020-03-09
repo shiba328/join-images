@@ -1,0 +1,32 @@
+
+.empty-message {
+  > * {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15%;
+    font-size: 5vw;
+
+    ul {
+      font-size: 2vw;
+    }
+  }
+
+  .not-mb {
+    @media (--sp) {
+      display: none;
+    }
+  }
+
+  .is-mb {
+    @media (--md) {
+      display: none;
+    }
+  }
+}
