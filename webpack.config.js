@@ -102,7 +102,8 @@ module.exports = {
                   require('precss'),
                   require('autoprefixer'),
                   require('postcss-nested'),
-                  require('postcss-custom-media')
+                  require('postcss-custom-media'),
+                  require('postcss-each')
                 ];
               }
             }

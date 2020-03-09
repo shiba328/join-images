@@ -24,12 +24,25 @@
     text-decoration: none;
     letter-spacing: 0;
   }
+
+  @media (--sp) {
+    .branding {
+      img {
+        height: 36px;
+      }
+    }
+
+    .menu {
+      font-size: 10px;
+    }
+  }
 }
 
 .global-body {
   position: relative;
   flex: 1;
   overflow: hidden;
+  background-image: url('assets/public/bg.png');
 }
 
 .global-footer {

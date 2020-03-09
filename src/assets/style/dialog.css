@@ -9,7 +9,7 @@
 
   &-overlay {
     position: relative;
-    
+
     .container.main {
       filter: blur(2px);
     }

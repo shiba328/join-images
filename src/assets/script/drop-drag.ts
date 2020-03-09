@@ -74,10 +74,13 @@ export default class DropDrag {
     item.classList.add('item');
     
     const blobURL = URL.createObjectURL(file);
+    const imgWrap = document.createElement('div');
+    imgWrap.classList.add('img-wrap');
+    item.appendChild(imgWrap);
     const img = document.createElement('img');
     img.setAttribute('draggable', 'false');
     img.setAttribute('src', blobURL);
-    item.appendChild(img);
+    imgWrap.appendChild(img);
 
     new AddCaption(item);
     new RemoveItem(item);

@@ -1,0 +1,84 @@
+.layout-tools
+  .add-file
+    input.is-hidden(accept="image/*" id="addfiles" multiple="" type="file" jsname="add-file")
+    label.btn(for="addfiles")
+      i.material-icons add_a_photo
+  .close
+    label.btn(for="close")
+      i.material-icons menu_open
+  input#close.is-hidden(type="checkbox" checked)
+  .layout-tools-inner
+    .justify
+      .label 横並び
+      .container
+        -
+          var justify = [
+            { type: 'normal', label: '通常の配置', icon: 'format_align_left'},
+            { type: 'center', label: '中央寄せ', selected: true, icon: 'format_align_center' },
+            { type: 'flex-end', label: '末尾寄せ', icon: 'format_align_right' },
+            //- { type: 'space-between', label: '均等割付(between)', icon: 'format_align_justify' }
+          ]
+        each item in justify
+          label
+            input(class="is-hidden" type="radio" name="justify" jsname="justify-select" value=item.type checked=item.selected)
+            i.material-icons #{item.icon}
+    .align
+      .label 縦並び
+      .container
+        -
+          var align = [
+            { type: 'flex-start', label: 'リセット', icon: 'vertical_align_top' },
+            { type: 'center', label: '中央寄せ', selected: true, icon: 'vertical_align_center' },
+            { type: 'flex-end', label: '下部寄せ', icon: 'vertical_align_bottom' }
+          ]
+        each item in align
+          label
+            input(class="is-hidden" type="radio" name="align" jsname="align-select" value=item.type checked=item.selected)
+            i.material-icons #{item.icon}
+    .wrap
+      input.void(type="checkbox" jsname="wrap-void" checked value="off")
+      span.label 折返
+      select.select(jsname="wrap-select")
+        -
+          var size = [
+            { type: '1', label: '1' },
+            { type: '2', label: '2', selected: true },
+            { type: '3', label: '3' },
+            { type: '4', label: '4' }
+          ]
+        each i in size
+          option(value=i.type, selected=i.selected) #{i.label}
+    .padding
+      span.label 隙間
+      select.select(jsname="padding-select")
+        - var size = [0, 8, 16, 32, 48]
+          each i in size
+            option(value=i) #{i}
+    .fontsize
+      span.label フォント
+      select.select(jsname="fontsize-select")
+        -
+          var size = [
+            { type: '12', label: '12'},
+            { type: '16', label: '16'},
+            { type: '22', label: '22'},
+            { type: '36', label: '36', selected: true }
+          ]
+        each i in size
+          option(value=i.type, selected=i.selected) #{i.label}
+    .color
+      input.void(type="checkbox" jsname="color-void")
+      span.label カラー
+      input.select(type="color", value="#036eb8", jsname="color-select" )
+    .background
+      input.void(type="checkbox" jsname="background-void")
+      span.label 背景
+      input.select(type="color", value="#ffffff", jsname="background-select" )
+    .canvassize
+      input.void(type="checkbox" jsname="canvassize-void")
+      span.label 横
+      input.select(type="number" jsname="canvassize-select" step="20" value="640")
+  .download
+    button.btn.preview(jsname="preview-file", disabled)
+      i.material-icons file_download
+      span.label プレビュー
