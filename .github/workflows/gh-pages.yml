@@ -3,11 +3,14 @@ on:
   pull_request:
     branches:
       - master
+    paths-ignore:
+      - '**.yml'
+      - '**.md'
 jobs:
   skip:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "[Skip CI] ${{ contains(github.event.head_commit.message, '[skip ci]') }}"
+      - run: echo "[skip ci] ${{ contains(github.event.head_commit.message, '[skip ci]') }}"
   build-and-deploy:
     runs-on: ubuntu-latest
     strategy:
