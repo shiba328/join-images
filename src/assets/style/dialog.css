@@ -30,13 +30,5 @@
   }
 
   &-actions {
-    button {
-      display: block;
-      padding: 1em;
-      margin: 1em auto;
-      color: #fff;
-      background: #006dff;
-      border: 0;
-    }
   }
 }
