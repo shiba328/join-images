@@ -1,6 +1,6 @@
 {
   "name": "join-images",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "join images  export a image",
   "main": "index.js",
   "dependencies": {
