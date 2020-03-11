@@ -1,8 +1,8 @@
 export default class Dialog {
   constructor () {
-    const dialogOpenBtns = document.querySelectorAll('[jsname="dialog_open_btn"]');
+    const dialogOpenBtns = document.querySelectorAll('[jsname="dialogopen_btn"]');
     dialogOpenBtns.forEach(element => {
-      this._openBtn(element);
+      this.openBtn(element);
     });
     const dialogCloseBtns = document.querySelectorAll('[jsname="dialog_close_btn"]');
     dialogCloseBtns.forEach(element => {
@@ -57,15 +57,15 @@ export default class Dialog {
     return item;
   }
 
-  _open(ref) {
+  open(ref) {
     const dialogTarget = document.querySelector(`[data-dialog-ref="${ref}"]`);
     document.body.classList.add('dialog-overlay');
     dialogTarget.classList.add('dialog');
   }
 
-  _openBtn(element) {
+  openBtn(element) {
     element.addEventListener('click', () => {
-      this._open(element.dataset.dialog);
+      this.open(element.dataset.dialog);
     });
   }
 
@@ -73,9 +73,9 @@ export default class Dialog {
     element.addEventListener('click', () => {
       const dialogTarget = document.querySelector(`[data-dialog-ref="${element.dataset.dialog}"]`);
       if(dialogTarget) {
-        dialogTarget.classList.add('is-hidden');
+        dialogTarget.classList.remove('dialog');
       } else {
-        element.closest('[jsname="dialog"]').classList.add('is-hidden');
+        element.closest('[jsname="dialog"]').classList.add('dialog');
       }
       //
       const body = document.querySelector('body');

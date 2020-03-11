@@ -47,6 +47,10 @@ export default class DropDrag {
       e.preventDefault();
       this._filesManage(e.target.files);
       this.emptyMessage.classList.add('is-hidden');
+
+      const previewBtn = document.querySelector('[jsname="preview-file"]');
+      previewBtn.removeAttribute('disabled');
+
     });
   }
 

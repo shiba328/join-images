@@ -1,4 +1,6 @@
 .layout-tools {
+  position: relative;
+  z-index: 2;
   background: #fff;
   filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.2));
 
@@ -27,12 +29,13 @@
       justify-content: center;
       width: 5em;
       height: 5em;
+      padding-left: 8px;
       margin-right: 0;
       margin-bottom: 8px;
       margin-left: auto;
       color: #fff;
       background: var(--btn);
-      border-radius: 2.5em;
+      border-radius: 2.5em 0 0 2.5em;
     }
   }
 
@@ -67,6 +70,7 @@
       background: var(--btn);
       border-radius: 2em;
 
+      &:disabled,
       &:hover {
         background: #aaa;
       }
@@ -79,6 +83,10 @@
     @media (--md) {
       /* float: left; */
     }
+  }
+
+  :checked + * {
+    display: none;
   }
 
   &-inner {
