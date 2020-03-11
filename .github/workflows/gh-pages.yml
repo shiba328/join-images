@@ -38,4 +38,4 @@ jobs:
       - name: Release
         run: npm run release -m "changelog [skip ci]"
       - name: git push
-        run: git push --follow-tags origin HEAD && npm publish
+        run: git push --follow-tags origin HEAD
