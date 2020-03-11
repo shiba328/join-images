@@ -1,0 +1,14 @@
+.preview(jsname="dialog" data-dialog-ref="preview")
+  .dialog-inner
+    .dialog-body
+      .container
+        .preview-display(jsname="preview-display")
+          .loading
+            include ./spinner.pug
+        .preview-info
+          .scale(jsname="preview-scale")
+          .attention ※画像が表示されない場合は「閉じる」を押して再度プレビューしてください。 ※SP版では元の画像の合計が大きいと画像が生成されない場合があります。
+          .announce 画像を長押しで「写真」に保存
+          button.save(jsname="save-btn") 保存
+    .dialog-actions
+      button.style-btn(jsname="dialog_close_btn" data-dialog="preview") 閉じる

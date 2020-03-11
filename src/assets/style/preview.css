@@ -1,53 +1,101 @@
 .dialog.preview {
-  img {
-    display: block;
-    width: auto;
-    max-width: 80%;
-    height: auto;
-    max-height: 80%;
-    margin: 10% auto;
-  }
+  display: block;
 
-  .save {
-    padding: 8px 16px;
+  .dialog-body {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+}
+
+.preview {
+  display: none;
+
+  .container {
+    display: flex;
+    width: 90%;
+    max-width: 800px;
+    height: 100%;
     margin: auto;
-    font-size: 16px;
-    color: #fff;
-    background: var(--btn);
-    border: 0;
-    border-radius: 2em;
+    border: 1px solid #fff;
+
+    @media (--md) {
+      min-width: 400px;
+      min-height: 400px;
+    }
+
+    @media (--sp) {
+      flex-direction: column;
+      height: 80%;
+    }
   }
 
-  .dialog-alert {
+  &-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 1em;
-    color: #fff;
-    text-align: center;
-  
+
+    @media (--md) {
+      width: 70%;
+    }
+
+    @media (--sp) {
+      height: 70%;
+    }
+
+    img {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 100%;
+      margin: auto;
+    }
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    background: #fff;
+
+    @media (--md) {
+      width: 30%;
+    }
+
+    @media (--sp) {
+      flex: 0 1 30%;
+    }
+
+    .scale {
+      font-size: 16px;
+    }
+
+    .announce {
+      display: inline-block;
+      padding: 1em;
+      color: var(--alert);
+
+      @media (--md) {
+        display: none;
+      }
+    }
+
+    .save {
+      width: 100%;
+      padding: 8px 16px;
+      margin-top: auto;
+      font-size: 16px;
+      color: #fff;
+      background: var(--btn);
+      border: 0;
+      border-radius: 2em;
+    }
+
     .attention {
       @media (--md) {
         display: none;
       }
-    }
-  
-    .announce {
-      display: inline-block;
-      padding: 1em;
-      border: 1px solid #fff;
-      border-radius: 2em;
-  
-      @media (--md) {
-        display: none;
-      }
-    }
-  }
-
-  .dialog{
-
-    &-header {
-      margin-top: auto;
-    }
-    &-actions {
-      margin-bottom: auto;
     }
   }
 }
