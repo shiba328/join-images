@@ -3,8 +3,8 @@ import Dialog from './dialog';
 
 export default class FirstAccess {
   constructor () {
-    Cookies.set('FirstAccess', 'true');
+    Cookies.set('FirstAccess', "1");
     const dialog = new Dialog();
-    dialog._open('first-access');
+    dialog.open('first-access');
   }
 }

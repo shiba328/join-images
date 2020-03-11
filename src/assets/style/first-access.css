@@ -15,12 +15,12 @@
 
   .dialog-body {
     height: 70%;
-    margin: 2em;
+    margin: 8%;
     background: #fff;
     border-radius: 1em;
 
     .container {
-      padding: 4em;
+      padding: 8%;
     }
 
     .btn {

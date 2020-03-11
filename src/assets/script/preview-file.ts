@@ -9,26 +9,36 @@ export default class PreviewFile {
   }
 
   private _resistEventListener() {
-    let previewFlag = false;
+    let doubleClick = false;
     const previewBtn = document.querySelector('[jsname="preview-file"]');
-    if(!previewFlag) {
       previewBtn.addEventListener('click', (e) => {
-        previewFlag = true;
-  
-        const node = <HTMLElement>document.querySelector('[jsname="main-canvas"]');
+        if (doubleClick) { return false; }
+        doubleClick = true;
 
+        const node = <HTMLElement>document.querySelector('[jsname="main-canvas"]');
         const parent = <HTMLElement>node.parentElement;
+        parent.style.height = "99999px";
         parent.style.width = "99999px";
         console.log(node.offsetWidth)
   
+        const items = parent.querySelectorAll('.item');
+        items.forEach(element => {
+          const e = <HTMLDivElement>element;
+          e.style.width = 'auto';
+        })
+
         htmlToImage.toPng(node)
           .then((dataUrl) => {
+            console.log(dataUrl);
+            const items = parent.querySelectorAll('.item');
+            items.forEach(element => {
+              const e = <HTMLDivElement>element
+              e.removeAttribute('style');
+            })
             parent.removeAttribute('style');
             const dialog = new Dialog();
             const format = dialog._format('preview', this._format(dataUrl));
-  
             format.classList.add('preview');
-  
             document.body.appendChild(format);
             //閉じたら削除
             const closeBtns = format.querySelectorAll('[jsname="dialog_close_btn"]');
@@ -37,7 +47,7 @@ export default class PreviewFile {
                 format.remove();
                 //
                 document.body.classList.remove('dialog-overlay');
-                previewFlag = false;
+                doubleClick = false;
               });
             });
           })
@@ -45,22 +55,12 @@ export default class PreviewFile {
             console.error('oops, something went wrong!', error);
           });
       })
-
-    }
   }
 
   private _format(dataUrl) {
     const scale = document.createElement('div');
     scale.classList.add('scale');
     
-    var img = new Image();
-    img.addEventListener("load", (e) => {
-      img.width = img.naturalWidth;
-      img.height = img.offsetHeight;
-      scale.innerText = `倍率: 80%　サイズ: ${img.naturalWidth} x ${img.offsetHeight}`;
-    }, false);
-    img.src = dataUrl;
-
     const alert = document.createElement('div');
     alert.classList.add('dialog-alert');
 
@@ -75,6 +75,14 @@ export default class PreviewFile {
     announce.innerText = "画像を長押しで「写真」に保存";
     
     alert.appendChild(scale);
+
+    var img = new Image();
+    img.addEventListener("load", (e) => {
+      img.width = img.naturalWidth;
+      img.height = img.offsetHeight;
+      scale.innerText = `サイズ: ${img.naturalWidth}px x ${img.naturalHeight}px`;
+    }, false);
+    img.src = dataUrl;
     alert.appendChild(img);
 
     const saveBtn =  document.createElement('button');

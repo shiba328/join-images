@@ -25,6 +25,15 @@
     letter-spacing: 0;
   }
 
+  .help-btn {
+    -webkit-appearance: none;
+    width: auto;
+    padding: 1em;
+    font-size: 14px;
+    background: 0;
+    border: 0;
+  }
+
   @media (--sp) {
     .branding {
       img {
@@ -50,7 +59,8 @@
   flex-wrap: wrap;
   align-items: center;
   font-size: 100%;
-  background: #fff;
+  color: #fff;
+  background: var(--color);
   border-top: 1px solid #eee;
 
   .menu {
