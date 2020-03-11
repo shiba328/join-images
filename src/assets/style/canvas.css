@@ -178,7 +178,7 @@
       }
 
       .item {
-        width: 50%;
+        max-width: 50%;
       }
     }
 
@@ -188,7 +188,7 @@
       }
 
       .item {
-        width: 33.33333%;
+        max-width: 33.33333%;
       }
     }
 
@@ -198,7 +198,7 @@
       }
 
       .item {
-        width: 25%;
+        max-width: 25%;
       }
     }
   }
@@ -224,6 +224,16 @@
         .caption {
           font-size: $(i)px;
         }
+      }
+    }
+  }
+
+  &.tmp {
+    &-grid-3 {
+      flex-wrap: wrap;
+
+      > .divider:not(:nth-child(1)) {
+        display: none;
       }
     }
   }

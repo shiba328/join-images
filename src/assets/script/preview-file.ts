@@ -19,12 +19,10 @@ export default class PreviewFile {
   }
 
   private _previewBtn() {
-    let doubleClick = false;
+
     const previewBtn = document.querySelector('[jsname="preview-file"]');
     previewBtn.addEventListener('click', (e) => {
-      if (doubleClick) { return false; }
-      doubleClick = true;
-
+      previewBtn.setAttribute('disabled', 'disabled');
       new Dialog().open('preview');
   
       const canvas = <HTMLElement>document.querySelector('[jsname="main-canvas"]');
@@ -34,7 +32,7 @@ export default class PreviewFile {
         .then((dataUrl) => {
           // this._exactSize(canvas, false);
           this._format(dataUrl);
-          doubleClick = false;
+          previewBtn.removeAttribute('disabled');
         })
         .catch(function (error) {
           console.error('oops, something went wrong!', error);
@@ -59,13 +57,9 @@ export default class PreviewFile {
     }, false);
     img.src = dataUrl;
     // 保存
-    const saveBtn =  <HTMLElement>document.querySelector('[jsname="save-btn"]');
-    saveBtn.addEventListener('click', (e) => {
-      new SaveFile(img.src);
-    })
+    new SaveFile(img.src);
     //追加
     const preview = <HTMLElement>document.querySelector('[jsname="preview-display"]');
-
   }
 
   private _exactSize(canvas, flg) {
