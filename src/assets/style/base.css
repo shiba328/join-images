@@ -34,7 +34,7 @@ a {
   }
 }
 
-.container {
+body > .container {
   &.main {
     display: flex !important;
     flex-direction: column;
@@ -42,8 +42,19 @@ a {
     overflow: hidden;
   }
 
-  &.loading {
+  .loading {
     display: none !important;
+  }
+}
+
+.style {
+  &-btn {
+    display: block;
+    padding: 1em;
+    margin: 1em auto;
+    color: #fff;
+    background: #006dff;
+    border: 0;
   }
 }
 
