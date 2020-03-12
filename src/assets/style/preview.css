@@ -46,7 +46,8 @@
     }
   }
 
-  &-display {
+  &-main {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -58,6 +59,44 @@
 
     @media (--sp) {
       height: 70%;
+    }
+
+    .pr {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      &-inner {
+        padding: 2em;
+        font-size: 14px;
+        color: #fff;
+        text-align: center;
+        background: #000;
+        opacity: 0;
+        animation: opacity 500ms 3s ease 1 forwards;
+
+        span {
+          display: inline-block;
+        }
+
+        .btns {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        &:hover {
+          color: transparent;
+          background: transparent;
+        }
+      }
     }
 
     img {
@@ -120,5 +159,15 @@
         display: none;
       }
     }
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0.1;
+  }
+
+  100% {
+    opacity: 0.8;
   }
 }

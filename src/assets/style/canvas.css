@@ -228,16 +228,6 @@
     }
   }
 
-  &.tmp {
-    &-grid-3 {
-      flex-wrap: wrap;
-
-      > .divider:not(:nth-child(1)) {
-        display: none;
-      }
-    }
-  }
-
   &-wrapper {
     position: relative;
     display: flex;

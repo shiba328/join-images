@@ -1,9 +1,27 @@
-<!DOCTYPE html>
+doctype html
+block vars
+  -
+    var site = {
+      title: "画像くっつけたー",
+      name: "pictcolla",
+      description: "ダウンロード不要！グリッドレイアウトに、組写真並べ方ツール。フォトショや加工アプリより簡単素早く、複数の写真を一枚に結合し並べ替えてまとめてるコラージュ。文字入れ機能でプレゼン資料やパワポの添付画像に便利なキャプション追加",
+      url: "https://github.com/shiba328/join-images",
+      gtm: "https://www.googletagmanager.com/ns.html?id=GTM-WMH5SJH",
+      ogp: "https://shiba328.github.io/join-images/images/ogp.png",
+      ati: "https://shiba328.github.io/join-images/images/fav/apple-touch-icon.png",
+      icon32: "https://shiba328.github.io/join-images/images/fav/favicon-32x32.png",
+      icon16: "https://shiba328.github.io/join-images/images/fav/favicon-16x16.png",
+      iconmask: "https://shiba328.github.io/join-images/images/fav/safari-pinned-tab.svg",
+      manifest: "https://shiba328.github.io/join-images/images/fav/site.webmanifest",
+      themeColor: "#2a66b1",
+      issues: "https://github.com/shiba328/join-images/issues",
+      contact: "https://forms.gle/humPNdoJcJ7KmaWB6"
+    }
 html(lang="ja")
   include assets/component/head.pug
   body
     noscript
-      iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-WMH5SJH" height="0" width="0" style="display:none;visibility:hidden")
+      iframe(src=site.gtm height="0" width="0" style="display:none;visibility:hidden")
     .container.main(style="display:none")
       include assets/component/header.pug
       .global-body
