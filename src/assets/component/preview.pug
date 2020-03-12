@@ -1,14 +1,32 @@
+block vars
+
 .preview(jsname="dialog" data-dialog-ref="preview")
   .dialog-inner
     .dialog-body.scrollbar
       .container
-        .preview-display(jsname="preview-display")
-          .loading
-            include ./spinner.pug
+        .preview-main
+          .pr
+            .pr-inner
+              h2 \ 保存したらSNSで紹介してください /
+              p 
+                span オープンしたてで知名度の無い「画像くっつけたー」を
+                span ぜひツイートやポストで広めてください。
+              p 製作者がエゴサして喜びます。
+              .btns
+                a.tw(href=`https://twitter.com/intent/tweet?text=&hashtags=${site.title}&url=${site.url}&screen_name=${site.name}` target="_blank")
+                  i.svg-icon
+                    include ../svg/tw.svg
+                a.fb(href="")
+                a.line(href="")
+              .copy
+                button.style-btn(jsname="copy-sns") URLをコピー
+          .display(jsname="preview-display")
+            .loading
+              include ../svg/spinner.svg
         .preview-info
-          .scale(jsname="preview-scale")
           .attention ※画像が表示されない場合は「閉じる」を押して再度プレビューしてください。 ※SP版では元の画像の合計が大きいと画像が生成されない場合があります。
           .announce 画像を長押しで「写真」に保存
+          .scale(jsname="preview-scale")
           button.save(jsname="save-btn") 保存
     .dialog-actions
       button.style-btn(jsname="dialog_close_btn" data-dialog="preview") 閉じる
