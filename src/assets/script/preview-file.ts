@@ -42,7 +42,7 @@ export default class PreviewFile {
 
   private _format(dataUrl) {
     // img
-    var img = new Image();
+    const img = new Image();
     img.addEventListener("load", (e) => {
       
       img.width = img.naturalWidth;

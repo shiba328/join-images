@@ -5,14 +5,23 @@
   background: #fff;
   border-bottom: 1px solid #eee;
 
-  a {
-    display: inline-block;
-    padding: 1em 0.5em;
-    margin: 0 0.5em;
-  }
-
   .menu {
     margin-left: auto;
+
+    a {
+      display: inline-block;
+      padding: 1em 0.5em;
+      margin: 0 0.5em;
+    }
+
+    .tw {
+      width: 22px;
+      height: auto;
+    }
+
+    > * {
+      vertical-align: middle;
+    }
   }
 
   .branding {

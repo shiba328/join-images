@@ -23,6 +23,10 @@ a {
   color: inherit;
 }
 
+button:not(:disabled) {
+  cursor: pointer;
+}
+
 .is-hidden {
   display: none !important;
   opacity: 0 !important;
@@ -31,6 +35,14 @@ a {
 .material-icons {
   &.large {
     font-size: 200%;
+  }
+}
+
+.svg-icon {
+  display: block;
+
+  svg {
+    display: block;
   }
 }
 
