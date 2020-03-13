@@ -3,6 +3,7 @@ import './style.css';
 
 import Cookies = require("js-cookie");
 
+import GetVersion from './assets/script/get-version';
 import FirstAccess from './assets/script/first-access';
 import DropDrag from './assets/script/drop-drag';
 import LayoutTools from './assets/script/layout-tools';
@@ -19,7 +20,7 @@ help.addEventListener('click', (e: Event & { target: HTMLInputElement }) => {
   dialog.open('first-access');
 });
 
-
+new GetVersion();
 new DropDrag();
 new LayoutTools();
 new PreviewFile();
