@@ -43,9 +43,10 @@ jobs:
       #     git config user.name ${{ secrets.NAME }}
       #     git config user.email ${{ secrets.EMAIL }}
       #     npm run release -m "changelog [skip ci]"
-      #     git push --follow-tags origin HEAD:refs/master/HEAD
+      #     git push --follow-tags origin HEAD
       - name: Version
         run: |
+          git fetch
           git checkout gh-pages
           echo "{\"lastUpdate\": $(date "+%s")}" > release-date.json
 
