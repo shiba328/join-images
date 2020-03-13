@@ -38,12 +38,12 @@ jobs:
         with:
           deploy_key: ${{ secrets.ACCESS_TOKEN }}
           publish_dir: ./dist
-      - name: Release
-        run: |
-          git config user.name ${{ secrets.NAME }}
-          git config user.email ${{ secrets.EMAIL }}
-          npm run release -m "changelog [skip ci]"
-          git push --follow-tags
+      # - name: Release
+      #   run: |
+      #     git config user.name ${{ secrets.NAME }}
+      #     git config user.email ${{ secrets.EMAIL }}
+      #     npm run release -m "changelog [skip ci]"
+      #     git push --follow-tags origin HEAD
       - name: Version
         run: |
           git fetch
