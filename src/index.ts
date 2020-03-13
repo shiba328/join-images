@@ -20,6 +20,9 @@ help.addEventListener('click', (e: Event & { target: HTMLInputElement }) => {
   dialog.open('first-access');
 });
 
+const a = <HTMLInputElement>document.head.querySelector('link[ref="custom-icon"]');
+a.disabled = false;
+
 new GetVersion();
 new DropDrag();
 new LayoutTools();

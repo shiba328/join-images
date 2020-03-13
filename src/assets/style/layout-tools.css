@@ -94,6 +94,7 @@
     padding: 8px;
     padding-bottom: 0;
 
+    /* stylelint-disable-next-line */
     > * {
       margin-right: 8px;
       margin-bottom: 8px;
