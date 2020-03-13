@@ -14,11 +14,11 @@ export default class GetVersion {
   private _getMessage() {
     const res = fetch(CONST.getVerJsonUrl);
     return res
-      .then((response) => {
-        return response.json();
-      })
-      .catch((error) => {
-        throw error;
-      });
+    .then((response) => {
+      return response.json();
+    })
+    .catch((error) => {
+      throw error;
+    });
   }
 }
