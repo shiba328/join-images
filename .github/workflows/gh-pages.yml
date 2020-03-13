@@ -43,4 +43,4 @@ jobs:
           git config user.name ${{ secrets.NAME }}
           git config user.email ${{ secrets.EMAIL }}
           npm run release -m "changelog [skip ci]"
-          git push --follow-tags origin refs/heads/master
+          git push --follow-tags origin HEAD
