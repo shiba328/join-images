@@ -4,7 +4,7 @@ export default class GetVersion {
   constructor () {
     this._getMessage()
       .then((data) => {
-        console.log(data)
+        console.log('s', data)
       })
       .catch((error) => {
         console.error(error);
