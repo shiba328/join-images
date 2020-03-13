@@ -5,6 +5,9 @@ block vars
     .dialog-body.scrollbar
       .container
         .preview-main
+          .display(jsname="preview-display")
+            .loading
+              include ../svg/spinner.svg
           .pr
             .pr-inner
               h2 \ 保存したらSNSで紹介してください /
@@ -20,13 +23,10 @@ block vars
                 a.line(href="")
               .copy
                 button.style-btn(jsname="copy-sns") URLをコピー
-          .display(jsname="preview-display")
-            .loading
-              include ../svg/spinner.svg
         .preview-info
+          .scale(jsname="preview-scale")
           .attention ※画像が表示されない場合は「閉じる」を押して再度プレビューしてください。 ※SP版では元の画像の合計が大きいと画像が生成されない場合があります。
           .announce 画像を長押しで「写真」に保存
-          .scale(jsname="preview-scale")
           button.save(jsname="save-btn") 保存
     .dialog-actions
       button.style-btn(jsname="dialog_close_btn" data-dialog="preview") 閉じる
