@@ -19,6 +19,10 @@ module.exports = {
       {
         from: path.resolve(__dirname, 'src/assets/public/'),
         to: path.resolve(__dirname, 'dist/images')
+      },
+      {
+        from: path.resolve(__dirname, 'src/release-date.json'),
+        to: path.resolve(__dirname, 'dist/release-date.json')
       }
     ]),
     new HtmlWebPackPlugin({
