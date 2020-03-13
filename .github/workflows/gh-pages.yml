@@ -45,7 +45,7 @@ jobs:
           npm run release -m "changelog [skip ci]"
           git push --follow-tags origin master
       - name: Version
-          run: |
-            git checkout gh-pages
-            echo "{\"lastUpdate\": $(date "+%s")}" > release-date.json
+        run: |
+          git checkout gh-pages
+          echo "{\"lastUpdate\": $(date "+%s")}" > release-date.json
 
