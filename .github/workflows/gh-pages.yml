@@ -46,6 +46,7 @@ jobs:
       #     git push --follow-tags origin HEAD:refs/master/HEAD
       - name: Version
         run: |
+          git fetch
           git checkout gh-pages
           echo "{\"lastUpdate\": $(date "+%s")}" > release-date.json
 
