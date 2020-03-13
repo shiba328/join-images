@@ -39,6 +39,9 @@ jobs:
           deploy_key: ${{ secrets.ACCESS_TOKEN }}
           publish_dir: ./dist
       - name: Release
-        run: npm run release -m "changelog [skip ci]"
+        run: |
+          git config user.name ${{ secrets.NAME }}
+          git config user.email ${{ secrets.EMAIL }}
+          npm run release -m "changelog [skip ci]"
       - name: git push
         run: git push --follow-tags origin HEAD
