@@ -4,7 +4,9 @@ export default class GetVersion {
   constructor () {
     this._getMessage()
       .then((data) => {
-        console.log(data)
+        const item = <HTMLElement>document.querySelector('[jsname="version"]');
+        const date = new Date(data.lastUpdate * 1000);
+        item.innerText = date.toLocaleDateString();
       })
       .catch((error) => {
         console.error(error);
