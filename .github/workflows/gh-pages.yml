@@ -49,5 +49,8 @@ jobs:
           git fetch
           git checkout gh-pages
           echo "{\"lastUpdate\": $(date "+%s")}" > release-date.json
+          git config user.name ${{ secrets.NAME }}
+          git config user.email ${{ secrets.EMAIL }}
+          git commit -a -m "releaselog [skip ci]"
           git push
 
