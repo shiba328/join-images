@@ -48,7 +48,11 @@
   &-main {
     position: relative;
     padding: 1em;
-    
+
+    @media (--sp) {
+      height: 70%;
+    }
+
     @media (--md) {
       display: flex;
       align-items: center;
@@ -56,7 +60,17 @@
       width: 70%;
     }
 
+    .display {
+      @media (--sp) {
+        height: 50%;
+      }
+    }
+
     .pr {
+      @media (--sp) {
+        height: 50%;
+      }
+
       @media (--md) {
         position: absolute;
         top: 0;
@@ -71,6 +85,7 @@
       }
 
       &-inner {
+        /* height: 100%; */
         color: #fff;
         text-align: center;
 
@@ -80,6 +95,11 @@
           background: #000;
           opacity: 0;
           animation: opacity 500ms 3s ease 1 forwards;
+
+          &:hover {
+            color: transparent;
+            background: transparent;
+          }
         }
 
         @media (--sp) {
@@ -95,11 +115,6 @@
           display: flex;
           flex-direction: column;
           align-items: center;
-        }
-
-        &:hover {
-          color: transparent;
-          background: transparent;
         }
       }
     }
