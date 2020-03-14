@@ -22,7 +22,8 @@ block vars
                 a.fb(href="")
                 a.line(href="")
               .copy
-                button.style-btn(jsname="copy-sns") URLをコピー
+                button.style-btn(jsname="copy-sns-btn") URLをコピー
+                textarea(jsname="copy-sns-input") #{site.url}
         .preview-info
           .scale(jsname="preview-scale")
           .attention ※画像が表示されない場合は「閉じる」を押して再度プレビューしてください。 ※SP版では元の画像の合計が大きいと画像が生成されない場合があります。

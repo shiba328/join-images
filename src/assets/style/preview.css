@@ -186,6 +186,13 @@
       }
     }
   }
+
+  .copy {
+    textarea {
+      position: absolute;
+      opacity: 0;
+    }
+  }
 }
 
 @keyframes opacity {
