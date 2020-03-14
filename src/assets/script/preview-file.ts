@@ -6,7 +6,11 @@ export default class PreviewFile {
   constructor() {
     // this.visitor = ua('UA-XXXX-XX');
     this._previewBtn();
+    this._copyBtn();
+    this._closeBtn();
+  }
 
+  private _closeBtn() {
     //閉じたら削除
     const closeBtns = document.querySelectorAll('[jsname="dialog_close_btn"]');
     closeBtns.forEach(element => {
@@ -18,8 +22,16 @@ export default class PreviewFile {
     });
   }
 
-  private _previewBtn() {
+  private _copyBtn() {
+    const copyBtns = document.querySelector('[jsname="copy-sns-btn"]');
+    copyBtns.addEventListener('click', () => {
+      let t: HTMLInputElement = document.querySelector('[jsname="copy-sns-input"]') as HTMLInputElement;
+      t.select();
+      document.execCommand("copy");
+    });
+  }
 
+  private _previewBtn() {
     const previewBtn = document.querySelector('[jsname="preview-file"]');
     previewBtn.addEventListener('click', (e) => {
       previewBtn.setAttribute('disabled', 'disabled');
