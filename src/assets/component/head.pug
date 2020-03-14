@@ -25,6 +25,7 @@ head
   meta(name="theme-color", content="#ffffff")
   -
     var icons = [
+      "close",
       "add_a_photo",
       "menu_open",
       "file_download",
@@ -33,7 +34,9 @@ head
       "format_align_right",
       "vertical_align_top",
       "vertical_align_center",
-      "vertical_align_bottom"
+      "vertical_align_bottom",
+      "navigate_before",
+      "navigate_next"
     ]
   -
     var yobi = [ 
@@ -41,8 +44,6 @@ head
       "highlight_off",
       "format_color_fill",
       "format_color_text",
-      "navigate_before",
-      "navigate_next"
     ]
   link(media="screen" disabled ref="custom-icon" href=`https://fonts.googleapis.com/icon?family=Material+Icons&text=${icons.join('')}` rel="stylesheet")
   script.

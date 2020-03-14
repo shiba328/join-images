@@ -14,6 +14,15 @@ if(!Cookies.get('FirstAccess')) {
   new FirstAccess();
 }
 
+const beforeunload = (e) => {
+  e.preventDefault();
+  var confirmMessage = '';
+  e.returnValue = confirmMessage;
+  return confirmMessage;
+};
+
+window.addEventListener('beforeunload', beforeunload);
+
 const help = <HTMLInputElement>document.querySelector('[jsname="open_help_btn"]');
 help.addEventListener('click', (e: Event & { target: HTMLInputElement }) => {
   const dialog = new Dialog();
